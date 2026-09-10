@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sabor-do-para-delivery
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: WHATSAPP_NUMBER
+        sync: false
+      - key: ORDER_REFERENCE
+        value: Doca / Boulevard, Belem - PA
+      - key: ALLOWED_ORIGIN
+        value: "*"

@@ -1,11 +1,6 @@
 import { renderMenu, filterMenu } from "./menu.js";
 import { createCart } from "./cart.js";
-import { createWhatsAppUrl } from "./whatsapp.js";
-
-const config = await import("./config.local.js").catch(() => ({
-  WHATSAPP_NUMBER: "SEU_NUMERO_COM_DDI_E_DDD",
-  ORDER_REFERENCE: "SUA_REFERENCIA_DE_OPERACAO",
-}));
+import { requestWhatsAppUrl } from "./api.js";
 
 const $ = (selector) => document.querySelector(selector);
 const elements = {
@@ -55,12 +50,13 @@ $("#btnNoConfirm").addEventListener("click", () =>
 confirmation.addEventListener("click", (event) => {
   if (event.target === confirmation) confirmation.classList.remove("active");
 });
-$("#btnYesConfirm").addEventListener("click", () => {
+$("#btnYesConfirm").addEventListener("click", async () => {
   if (!cart.entries().length) return;
-  window.location.href = createWhatsAppUrl(
-    cart.entries(),
-    cart.getNote(),
-    config,
-  );
+  try {
+    const url = await requestWhatsAppUrl(cart.entries(), cart.getNote());
+    window.location.href = url;
+  } catch (error) {
+    window.alert(error.message);
+  }
 });
 cart.render();

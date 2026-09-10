@@ -71,31 +71,6 @@ textarea {
 .brand {
   font: 600 1.35rem var(--display);
 }
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  background: var(--secondary);
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #7cffa0;
-  animation: pulse 1.8s infinite;
-}
-@keyframes pulse {
-  70% {
-    box-shadow: 0 0 0 7px rgba(124, 255, 160, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(124, 255, 160, 0);
-  }
-}
 .hero {
   display: flex;
   align-items: flex-end;
@@ -171,6 +146,17 @@ textarea {
   border-color: var(--primary);
   background: var(--primary);
   color: #fff;
+  animation: category-select 220ms ease-out;
+}
+@keyframes category-select {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 rgba(74, 21, 43, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 10px rgba(74, 21, 43, 0.18);
+  }
 }
 .menu-section {
   padding: 24px 0 8px;
@@ -229,7 +215,7 @@ textarea {
   margin-top: auto;
 }
 .price {
-  color: var(--accent);
+  color: #000;
   font-size: 1.05rem;
   font-weight: 800;
 }
@@ -300,10 +286,24 @@ textarea {
   line-height: 1.45;
 }
 .site-footer-note {
-  padding: 32px 20px 16px;
-  color: #8a8479;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 20px 16px;
+  background: var(--primary);
+  color: #fff;
   text-align: center;
   font-size: 0.78rem;
+}
+.site-footer-note span {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.site-footer-note small {
+  color: #e7c9d5;
+  font-size: 0.72rem;
 }
 .cart-bar {
   position: fixed;
@@ -445,7 +445,7 @@ textarea {
   font-weight: 700;
 }
 .modal-item-price {
-  color: var(--accent);
+  color: #000;
   font-size: 0.85rem;
   font-weight: 700;
 }

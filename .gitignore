@@ -1,0 +1,17 @@
+# Dependencias e arquivos gerados
+node_modules/
+dist/
+build/
+coverage/
+
+# Variaveis de ambiente e logs
+.env
+.env.*
+!.env.example
+js/config.local.js
+*.log
+
+# Arquivos do sistema e do editor
+.DS_Store
+Thumbs.db
+.vscode/

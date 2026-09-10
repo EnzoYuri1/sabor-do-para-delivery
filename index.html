@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Comida típica paraense com entrega rápida: tacacá, vatapá, pato no tucupi, açaí puro e muito mais."
+    />
+    <title>Sabor do Pará | Delivery & Cardápio Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <span class="brand">🍲 Sabor do Pará</span
+        ><span class="status-badge"
+          ><span class="pulse-dot" aria-hidden="true"></span>Aberto Agora</span
+        >
+      </div>
+    </header>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Direto de Belém pra sua casa</p>
+        <h1 id="hero-title">O Autêntico Sabor do Pará na Sua Mesa</h1>
+        <p>
+          Tucupi fresquinho, jambu que formiga na boca e açaí puro batido na
+          hora — a Amazônia em cada prato, entregue quentinho onde você estiver.
+        </p>
+        <a href="#cardapio" class="btn-cta">Ver Cardápio &amp; Pedir</a>
+      </div>
+    </section>
+    <nav class="categories" aria-label="Categorias do cardápio">
+      <div class="pills">
+        <button class="pill active" type="button" data-category="todos">
+          Todos</button
+        ><button class="pill" type="button" data-category="pratos">
+          Pratos Típicos</button
+        ><button class="pill" type="button" data-category="acai">
+          Açaí &amp; Sobremesas</button
+        ><button class="pill" type="button" data-category="bebidas">
+          Bebidas Regionais</button
+        ><button class="pill" type="button" data-category="combos">
+          Combos
+        </button>
+      </div>
+    </nav>
+    <main class="container">
+      <section class="menu-section" id="cardapio" aria-labelledby="menu-title">
+        <h2 id="menu-title">Cardápio</h2>
+        <div class="product-list" id="productList"></div>
+      </section>
+      <section class="info-section" aria-label="Informações da entrega">
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-icon">⏱️</span>
+            <div>
+              <h3>Entrega rápida</h3>
+              <p>De 35 a 50 minutos para a maioria dos bairros atendidos.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🌿</span>
+            <div>
+              <h3>Insumos frescos</h3>
+              <p>Jambu, tucupi e açaí 100% autênticos, direto do Pará.</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">✅</span>
+            <div>
+              <h3>Garantia regional</h3>
+              <p>Receitas tradicionais, sem atalhos, como se faz em Belém.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer-note">
+      © 2026 Sabor do Pará • Projeto desenvolvido por Enzo Yuri
+    </footer>
+    <div class="cart-bar hidden" id="cartBar" aria-live="polite">
+      <div class="cart-inner">
+        <div class="cart-summary">
+          <span class="cart-count" id="cartCount">0 itens</span
+          ><span class="cart-total" id="cartTotal">R$ 0,00</span>
+        </div>
+        <button class="btn-whatsapp" type="button" id="btnOpenModal">
+          🛒 Ver e Confirmar
+        </button>
+      </div>
+    </div>
+    <div
+      class="modal-overlay"
+      id="cartModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cart-title"
+    >
+      <div class="modal-container">
+        <div class="modal-header">
+          <h2 id="cart-title">Seu Pedido</h2>
+          <button
+            class="btn-close-modal"
+            type="button"
+            id="btnCloseModal"
+            aria-label="Fechar modal"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-item-list" id="modalItemList"></div>
+          <div class="order-note">
+            <label for="orderNoteInput">📝 Observação do pedido</label
+            ><textarea
+              id="orderNoteInput"
+              maxlength="10000"
+              rows="5"
+              placeholder="Ex: sem pimenta, pouco sal, jambu caprichado..."
+            ></textarea
+            ><span class="note-counter" id="orderNoteCounter"
+              >0/100 linhas</span
+            >
+          </div>
+          <div class="modal-summary">
+            <div class="modal-summary-row">
+              <span>Subtotal</span><span id="modalSubtotal">R$ 0,00</span>
+            </div>
+            <div class="modal-summary-row total">
+              <span>Total</span><span id="modalTotal">R$ 0,00</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-confirm-send" type="button" id="btnWhatsapp">
+            📲 Enviar Pedido via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="confirmation-overlay"
+      id="confirmationModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmation-title"
+    >
+      <div class="confirmation-box">
+        <div class="confirmation-icon">❓</div>
+        <h2 id="confirmation-title">Confirmar pedido?</h2>
+        <p>
+          Você tem certeza que deseja confirmar este pedido? Depois da
+          confirmação, você será direcionado para o WhatsApp.
+        </p>
+        <div class="confirmation-buttons">
+          <button class="btn-no" type="button" id="btnNoConfirm">Não</button
+          ><button class="btn-yes" type="button" id="btnYesConfirm">
+            Sim, confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

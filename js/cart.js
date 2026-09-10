@@ -16,6 +16,7 @@ export function createCart(elements) {
     const items = [...cart.values()];
     const itemCount = count();
     const value = total();
+    document.body.classList.toggle("has-cart", itemCount > 0);
     elements.count.textContent = `${itemCount} ${itemCount === 1 ? "item" : "itens"}`;
     elements.total.textContent = formatBRL(value);
     elements.bar.classList.toggle("hidden", itemCount === 0);

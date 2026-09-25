@@ -1,39 +1,39 @@
 # Sabor do Pará
 
-Cardápio digital para delivery de comida paraense, com uma experiência simples, responsiva e orientada a pedidos pelo WhatsApp.
+Digital menu for Pará-style food delivery, offering a simple, responsive, order-focused experience via WhatsApp.
 
-## Demonstração
+## Demo
 
 - Site: https://sabor-do-para-delivery.onrender.com
-- Repositório: https://github.com/EnzoYuri1/sabor-do-para-delivery
+- Repository: https://github.com/EnzoYuri1/sabor-do-para-delivery
 
-## Sobre o projeto
+## About the project
 
-O Sabor do Pará apresenta pratos típicos da culinária paraense em uma interface otimizada para celular, tablet e desktop. O visitante pode filtrar categorias, adicionar produtos ao carrinho, informar observações e enviar o pedido pelo WhatsApp.
+Sabor do Pará showcases traditional dishes from Pará cuisine in an interface optimized for mobile, tablet, and desktop. Visitors can filter categories, add products to the cart, add notes, and send their order via WhatsApp.
 
-## Funcionalidades
+## Features
 
-- Cardápio organizado por categorias
-- Filtros para pratos, açaí, bebidas e combos
-- Carrinho com controle de quantidades
-- Resumo de subtotal e total
-- Campo de observações do pedido
-- Redirecionamento para o WhatsApp
-- API com validação de produtos e quantidades
-- Configuração do WhatsApp protegida no backend
-- Layout responsivo
-- Deploy gratuito com Render
+- Menu organized by category
+- Filters for dishes, açaí, drinks, and combos
+- Cart with quantity controls
+- Subtotal and total summary
+- Order notes field
+- WhatsApp redirect
+- API with product and quantity validation
+- WhatsApp configuration protected on the backend
+- Responsive layout
+- Free deployment with Render
 
-## Tecnologias
+## Technologies
 
 - HTML5
 - CSS3
-- JavaScript moderno com módulos ES
+- Modern JavaScript with ES modules
 - Node.js
-- API HTTP nativa do Node.js
+- Node.js native HTTP API
 - Render
 
-## Estrutura
+## Structure
 
 ```text
 .
@@ -53,40 +53,40 @@ O Sabor do Pará apresenta pratos típicos da culinária paraense em uma interfa
 └── server.js
 ```
 
-## Executar localmente
+## Running locally
 
-Pré-requisito: Node.js 18 ou superior.
+Requirement: Node.js 18 or higher.
 
-1. Instale as dependências:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-2. Configure as variáveis de ambiente no terminal:
+2. Set the environment variables in your terminal:
 
 PowerShell:
 
 ```powershell
-$env:WHATSAPP_NUMBER="SEU_NUMERO_COM_DDI_E_DDD"
+$env:WHATSAPP_NUMBER="YOUR_NUMBER_WITH_COUNTRY_AND_AREA_CODE"
 $env:ORDER_REFERENCE="Doca / Boulevard, Belem - PA"
 ```
 
-3. Inicie o servidor:
+3. Start the server:
 
 ```bash
 npm start
 ```
 
-Acesse `http://localhost:3000`.
+Access `http://localhost:3000`.
 
-Para desenvolvimento com reinício automático:
+For development with automatic restart:
 
 ```bash
 npm run dev
 ```
 
-Para validar a sintaxe dos arquivos:
+To validate the syntax of the files:
 
 ```bash
 npm run check
@@ -96,13 +96,13 @@ npm run check
 
 ### `GET /health`
 
-Verifica se o serviço está ativo.
+Checks whether the service is active.
 
 ### `POST /api/whatsapp/order`
 
-Recebe os IDs e quantidades dos produtos, valida os dados no servidor, calcula o total e retorna uma URL de redirecionamento para o WhatsApp.
+Receives product IDs and quantities, validates the data server-side, calculates the total, and returns a redirect URL to WhatsApp.
 
-Exemplo de requisição:
+Example request:
 
 ```json
 {
@@ -112,26 +112,26 @@ Exemplo de requisição:
       "quantity": 1
     }
   ],
-  "note": "Sem pimenta"
+  "note": "No pepper"
 }
 ```
 
-## Deploy
+## Deployment
 
-O arquivo `render.yaml` contém a configuração do Web Service no Render.
+The `render.yaml` file contains the Web Service configuration for Render.
 
-No painel do Render, configure a variável secreta:
+In the Render dashboard, configure the secret variable:
 
 ```text
-WHATSAPP_NUMBER=seu_numero_com_codigo_do_pais_e_ddd
+WHATSAPP_NUMBER=your_number_with_country_and_area_code
 ```
 
-As variáveis `ORDER_REFERENCE` e `ALLOWED_ORIGIN` também podem ser ajustadas no ambiente do serviço. O arquivo `.env` nunca deve ser enviado ao Git.
+The `ORDER_REFERENCE` and `ALLOWED_ORIGIN` variables can also be adjusted in the service environment. The `.env` file should never be pushed to Git.
 
-## Segurança
+## Security
 
-O número do WhatsApp não é armazenado no frontend publicado. Ele é lido pelo backend através da variável de ambiente `WHATSAPP_NUMBER`. Nunca inclua senhas, tokens ou chaves privadas neste repositório.
+The WhatsApp number is not stored on the published frontend. It's read by the backend via the `WHATSAPP_NUMBER` environment variable. Never include passwords, tokens, or private keys in this repository.
 
 ## Status
 
-Projeto publicado e funcional como demonstração de portfólio. Melhorias futuras podem incluir persistência de pedidos, cálculo de entrega, painel administrativo e integração com pagamentos.
+Project published and functional as a portfolio demo. Future improvements may include order persistence, delivery cost calculation, an admin panel, and payment integration.
